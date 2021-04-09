@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputTextBar = ({ handleAddTodoItem }) => {
+const InputTextBar = ({ addTodoItem }) => {
   return (
     <React.Fragment>
       <form>
@@ -9,7 +9,7 @@ const InputTextBar = ({ handleAddTodoItem }) => {
           onClick={(e) => {
             e.preventDefault();
             const todoTextInput = document.querySelector('#todo-name-input');
-            handleAddTodoItem(todoTextInput.value);
+            addTodoItem(todoTextInput.value);
           }} />
       </form>
     </React.Fragment>
