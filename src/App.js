@@ -7,6 +7,7 @@ function App() {
 
   const handleAddTodoItem = (todoInput) => {
     setTodoItems([...todoItems, { name: todoInput, complete: false, priority: false }]);
+    document.querySelector('#todo-name-input').value = '';
   }
 
 
