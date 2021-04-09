@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
 
 function App() {
-  const [todoItems, setTodoItems] = useState([{ name: 'Trotar', complete: false, priority: false }]);
+  const [todoItems, setTodoItems] = useState([{ id: uuidv4(),name: 'Trotar', complete: false, priority: false }]);
 
   const handleAddTodoItem = (todoInput) => {
-    setTodoItems([...todoItems, { name: todoInput, complete: false, priority: false }]);
+    setTodoItems([...todoItems, { id: uuidv4(), name: todoInput, complete: false, priority: false }]);
+    document.querySelector('#todo-name-input').value = '';
   }
 
 

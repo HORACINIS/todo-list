@@ -4,8 +4,8 @@ const InputTextBar = ({ handleAddTodoItem }) => {
   return (
     <React.Fragment>
       <form>
-        <input type='text' placeholder='Enter Text' name='name' id='todo-name-input' />
-        <input type='submit' value='Add Todo Item'
+        <input type='text' placeholder='To-do name' name='name' id='todo-name-input' />
+        <input type='submit' value='Add'
           onClick={(e) => {
             e.preventDefault();
             const todoTextInput = document.querySelector('#todo-name-input');
