@@ -1,14 +1,12 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
-const TodoListItems = ({ todoItems }) => {
+const TodoListItems = ({ todoItems, removeTodoItem }) => {
 
   return (
     <ul>
       {todoItems.map((item) => {
-        return (
-          <TodoListItem key={uuidv4()} {...item} />
-        )
+        const { id } = item;
+        return <TodoListItem key={id} {...item} removeTodoItem={removeTodoItem} />
       })}
     </ul>
   )
@@ -18,11 +16,14 @@ export default TodoListItems;
 
 
 
-const TodoListItem = ({ name }) => {
+const TodoListItem = ({ id, name, removeTodoItem }) => {
   return (
     <li>
-      <p>{name} <button>Remove</button></p>
-
+      <p>{name} <button onClick={() => {
+        const removeItemConfirmation = window.confirm('Are you sure that you want to remove this to-do item?');
+        removeItemConfirmation && removeTodoItem(id);
+      }}>Remove</button>
+      </p>
     </li>
   )
 }

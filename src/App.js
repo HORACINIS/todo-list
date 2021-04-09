@@ -4,13 +4,17 @@ import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
 
 function App() {
-  const [todoItems, setTodoItems] = useState([{ id: uuidv4(),name: 'Trotar', complete: false, priority: false }]);
+  const [todoItems, setTodoItems] = useState([{ id: uuidv4(), name: 'Trotar', complete: false, priority: false }]);
 
   const handleAddTodoItem = (todoInput) => {
     setTodoItems([...todoItems, { id: uuidv4(), name: todoInput, complete: false, priority: false }]);
     document.querySelector('#todo-name-input').value = '';
   }
 
+  const handleRemoveTodoItem = (todoItemId) => {
+    const newTodoItemList =  todoItems.filter(todoItem => todoItem.id !== todoItemId);
+    setTodoItems(newTodoItemList);
+  }
 
   return (
     <div className='container'>
@@ -23,7 +27,7 @@ function App() {
         {/* {todoItems.map((todoItem, index) => {
             return <TodoListItems key={index} todoItems={todoItem} />
           })} */}
-        <TodoListItems todoItems={todoItems} />
+        <TodoListItems todoItems={todoItems} removeTodoItem={handleRemoveTodoItem} />
         {/* </ul> */}
       </main>
     </div>
