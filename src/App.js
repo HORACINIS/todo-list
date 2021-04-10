@@ -26,10 +26,14 @@ function App() {
 
   // Purely for testing -----------------
   useEffect(() => {
-    console.log('IS COMPLETE')
-    console.log(todoItems[0].isComplete)
-    console.log('PRIORITY')
-    console.log(todoItems[0].priority)
+    if (todoItems.length >= 1) {
+      console.log(todoItems.length)
+      console.log('IS COMPLETE')
+      console.log(todoItems[0].isComplete)
+      console.log('PRIORITY')
+      console.log(todoItems[0].priority)
+    }
+    return null;
   }, [todoItems]);
   // ------------------------------------
 

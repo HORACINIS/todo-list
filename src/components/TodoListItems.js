@@ -21,13 +21,18 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
 export default TodoListItems;
 
 
-
 const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
-  const { name, complete } = todoItem;
+  const { name, complete, priority } = todoItem;
   return (
     <li>
       <p>
-        <AiOutlineStar fill='green' onClick={() => priorityTodo(todoItem)} />
+        {!priority ?
+          <AiOutlineStar fill='blue' onClick={() => priorityTodo(todoItem)} />
+          :
+          <AiFillStar fill='blue' onClick={() => priorityTodo(todoItem)} />
+        }
+        {/* ABOVE - COME BACK TO THIS AND TRY TO CHANGE THIS REPEATED CODE LATER */}
+
         <input type='checkbox' name='complete' checked={complete}
           onChange={(e) => completeTodoItem(e, todoItem)}
         />
