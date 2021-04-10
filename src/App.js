@@ -26,9 +26,20 @@ function App() {
 
   // Purely for testing -----------------
   useEffect(() => {
+    console.log('IS COMPLETE')
     console.log(todoItems[0].isComplete)
+    console.log('PRIORITY')
+    console.log(todoItems[0].priority)
   }, [todoItems]);
   // ------------------------------------
+
+  const handlePriorityTodo = (todoItem) => {
+    const todoItemPriority = todoItem.priority;
+    setTodoItems(prevState => {
+      todoItem.priority = !todoItemPriority;
+      return [...prevState];
+    });
+  }
 
   return (
     <div className='container'>
@@ -41,6 +52,7 @@ function App() {
           todoItems={todoItems}
           removeTodoItem={handleRemoveTodoItem}
           completeTodoItem={handleCompleteTodoItem}
+          priorityTodo={handlePriorityTodo}
         />
       </main>
     </div>
