@@ -22,7 +22,7 @@ export default TodoListItems;
 
 
 const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
-  const { name, complete, priority } = todoItem;
+  const { name, isComplete, priority } = todoItem;
   return (
     <li>
       <p>
@@ -33,7 +33,7 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
         }
         {/* ABOVE - COME BACK TO THIS AND TRY TO CHANGE THIS REPEATED CODE LATER */}
 
-        <input type='checkbox' name='complete' checked={complete}
+        <input type='checkbox' name='complete' checked={isComplete}
           onChange={(e) => completeTodoItem(e, todoItem)}
         />
         {name} <button onClick={() => {

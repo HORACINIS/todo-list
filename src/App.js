@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
+import Filters from './components/filters/Filters';
 
 function App() {
   const [todoItems, setTodoItems] = useState([{ id: uuidv4(), name: 'Trotar', isComplete: false, priority: false }]);
+  const [radioBtnSelected, setRadioBtnSelected] = useState({ value: 0, name: 'Display all' });
 
   const handleAddTodoItem = (todoInput) => {
     setTodoItems([...todoItems, { id: uuidv4(), name: todoInput, isComplete: false, priority: false }]);
@@ -18,6 +20,11 @@ function App() {
 
   const handleCompleteTodoItem = (event, todoItem) => {
     setTodoItems(prevState => {
+      // console.log(event.target.checked)
+
+      // todoItem.isComplete = event.target.checked;
+      // return [...prevState];
+
       todoItem.isComplete = event.target.checked;
       return [...prevState];
     });
@@ -35,6 +42,10 @@ function App() {
     }
     return null;
   }, [todoItems]);
+
+  useEffect(() => {
+    console.log(radioBtnSelected)
+  }, [radioBtnSelected])
   // ------------------------------------
 
   const handlePriorityTodo = (todoItem) => {
@@ -45,6 +56,27 @@ function App() {
     });
   }
 
+
+  const todoItemsSortedByBtnSelection = todoItems.filter((item) => {
+    switch (radioBtnSelected.value) {
+      case '0':
+        console.log(item)
+        return item;
+      case '1':
+        console.log(item)
+        return item?.isComplete === false;
+      case '2':
+        console.log(item)
+        return item?.isComplete === true;
+      default:
+        return item;
+    }
+  })
+
+  useEffect(() => {
+    console.log(todoItemsSortedByBtnSelection)
+  }, [todoItemsSortedByBtnSelection])
+
   return (
     <div className='container'>
       <header>
@@ -52,12 +84,17 @@ function App() {
         <InputText addTodoItem={handleAddTodoItem} />
       </header>
       <main>
-        <TodoListItems
-          todoItems={todoItems}
-          removeTodoItem={handleRemoveTodoItem}
-          completeTodoItem={handleCompleteTodoItem}
-          priorityTodo={handlePriorityTodo}
-        />
+        <section>
+          <Filters todoItems={todoItems} setRadioBtnSelected={setRadioBtnSelected} />
+        </section>
+        <section>
+          <TodoListItems
+            todoItems={todoItemsSortedByBtnSelection}
+            removeTodoItem={handleRemoveTodoItem}
+            completeTodoItem={handleCompleteTodoItem}
+            priorityTodo={handlePriorityTodo}
+          />
+        </section>
       </main>
     </div>
   );
