@@ -4,7 +4,7 @@ import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
 const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTodo, radioBtnSelected }) => {
 
-  const todoItemsSortedByBtnSelection = todoItems.filter((item) => {
+  const todoItemsSortedByRadioBtnSelection = todoItems.filter((item) => {
     switch (radioBtnSelected.value) {
       case '0': return item;
       case '1': return item?.isComplete === false;
@@ -14,16 +14,13 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
   })
   // For testing --------------------------------
   useEffect(() => {
-    console.log(todoItemsSortedByBtnSelection)
-  }, [todoItemsSortedByBtnSelection])
+    console.log(todoItemsSortedByRadioBtnSelection)
+  }, [todoItemsSortedByRadioBtnSelection])
   // ---------------------------------------------
-
-
-  
 
   return (
     <ul>
-      {todoItemsSortedByBtnSelection.map((item) => {
+      {todoItemsSortedByRadioBtnSelection.map((item) => {
         return <TodoListItem key={uuidv4()}
           todoItem={item}
           removeTodoItem={removeTodoItem}

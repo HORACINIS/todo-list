@@ -68,7 +68,10 @@ function App() {
       </header>
       <main>
         <section>
-          <Filters setTodoItems={setTodoItems} todoItems={todoItems} setRadioBtnSelected={setRadioBtnSelected} />
+          <Filters todoItems={todoItems}
+            setTodoItems={setTodoItems}
+            setRadioBtnSelected={setRadioBtnSelected}
+          />
         </section>
         <section>
           <TodoListItems

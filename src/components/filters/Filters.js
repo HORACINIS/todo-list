@@ -36,6 +36,11 @@ const Filters = ({ setRadioBtnSelected, setTodoItems, todoItems }) => {
     setTodoItems((prevState) => [...prevState]);
   }
 
+  const handleSortTodoItemsByTimeCreated = (e) => {
+    console.log('wena')
+    setTodoItems(todoItems)
+  }
+
   return (
     <React.Fragment>
       {RADIO_OPTIONS.map(({ value, name }) => (
@@ -47,7 +52,11 @@ const Filters = ({ setRadioBtnSelected, setTodoItems, todoItems }) => {
         />
       ))}
       <br />
-      <DropdownMenu sortTodoItemsByName={handleSortTodoItemsByName} sortTodoItemsByPriority={handleSortTodoItemsByPriority} />
+      <DropdownMenu
+        sortTodoItemsByName={handleSortTodoItemsByName}
+        sortTodoItemsByPriority={handleSortTodoItemsByPriority}
+        sortTodoItemsByTimeCreated={handleSortTodoItemsByTimeCreated}
+      />
     </React.Fragment>
   )
 }
