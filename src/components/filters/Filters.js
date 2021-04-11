@@ -37,8 +37,12 @@ const Filters = ({ setRadioBtnSelected, setTodoItems, todoItems }) => {
   }
 
   const handleSortTodoItemsByTimeCreated = (e) => {
-    console.log('wena')
-    setTodoItems(todoItems)
+    todoItems.sort((a, b) => {
+      if (a.index < b.index) return -1;
+      if (a.index > b.index) return 1;
+      return 0;
+    })
+    setTodoItems((prevState) => [...prevState]);
   }
 
   return (

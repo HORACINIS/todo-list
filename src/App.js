@@ -4,12 +4,16 @@ import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
 import Filters from './components/filters/Filters';
 
+// const mockData = [{ id: uuidv4(), index: todoItemIndex, name: 'Trotar', isComplete: false, priority: false }]
+
 function App() {
-  const [todoItems, setTodoItems] = useState([{ id: uuidv4(), name: 'Trotar', isComplete: false, priority: false }]);
+  const [todoItemIndex, setTodoItemIndex] = useState(0);
+  const [todoItems, setTodoItems] = useState([]);
   const [radioBtnSelected, setRadioBtnSelected] = useState({ value: 0, name: 'Display all' });
 
   const handleAddTodoItem = (todoInput) => {
-    setTodoItems([...todoItems, { id: uuidv4(), name: todoInput, isComplete: false, priority: false }]);
+    setTodoItemIndex(todoItemIndex + 1);
+    setTodoItems([...todoItems, { id: uuidv4(), index: todoItemIndex, name: todoInput, isComplete: false, priority: false }]);
     document.querySelector('#todo-name-input').value = '';
   }
 
