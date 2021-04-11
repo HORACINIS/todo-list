@@ -1,7 +1,8 @@
 import React from 'react';
 import RadioButtons from './RadioButtons';
+import Checkbox from './Checkbox';
 
-const Filters = ({ setRadioBtnSelected, radioBtnSelected }) => {
+const Filters = ({ setRadioBtnSelected }) => {
   const RADIO_OPTIONS = [
     {
       value: 0,
@@ -19,14 +20,16 @@ const Filters = ({ setRadioBtnSelected, radioBtnSelected }) => {
 
   return (
     <React.Fragment>
-      {RADIO_OPTIONS.map((button) => (
-        <RadioButtons key={button.value}
-          selectionValue={button.value}
-          selectionName={button.name}
+      {RADIO_OPTIONS.map(({ value, name }) => (
+        <RadioButtons key={value}
+          selectionValue={value}
+          selectionName={name}
           setRadioBtnSelected={setRadioBtnSelected}
           radioBtnOptions={RADIO_OPTIONS}
         />
       ))}
+      <br />
+      <Checkbox />
     </React.Fragment>
   )
 }
