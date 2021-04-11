@@ -1,6 +1,6 @@
 import React from 'react';
 import RadioButtons from './RadioButtons';
-import Checkboxes from './Checkboxes';
+import DropdownMenu from './DropdownMenu';
 
 const Filters = ({ setRadioBtnSelected }) => {
   const RADIO_OPTIONS = [
@@ -29,7 +29,7 @@ const Filters = ({ setRadioBtnSelected }) => {
         />
       ))}
       <br />
-      <Checkboxes />
+      <DropdownMenu />
     </React.Fragment>
   )
 }
