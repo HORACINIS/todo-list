@@ -1,12 +1,11 @@
 import React from 'react';
 
-const DropdownMenu = ({ sortByNameTodoItems }) => {
+const DropdownMenu = ({ sortTodoItemsByName, sortTodoItemsByPriority }) => {
   return (
-    // <label>
-    //   <input type='checkbox' name='sortByPriority' onChange={ (e) => console.log(e.target.checked) } />
-    //   Sort by priority and name
-    // </label>
-    <button type='button' onClick={(e) => sortByNameTodoItems(e)}>Sort By Name</button>
+    <React.Fragment>
+      <button type='button' onClick={(e) => sortTodoItemsByName(e)}>Sort By Name</button>
+      <button type='button' onClick={(e) => sortTodoItemsByPriority(e)}>Sort By Priority</button>
+    </React.Fragment>
   )
 }
 

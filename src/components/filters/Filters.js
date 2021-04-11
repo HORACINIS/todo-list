@@ -17,11 +17,20 @@ const Filters = ({ setRadioBtnSelected, setTodoItems, todoItems }) => {
       name: 'Complete'
     }
   ];
-  
-  const handleSortByNameTodoItems = (e) => {
+
+  const handleSortTodoItemsByName = (e) => {
     todoItems.sort((a, b) => {
       if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
       if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+      return 0;
+    })
+    setTodoItems((prevState) => [...prevState]);
+  }
+
+  const handleSortTodoItemsByPriority = (e) => {
+    todoItems.sort((a, b) => {
+      if (a.priority > b.priority) return -1;
+      if (a.priority < b.priority) return 1;
       return 0;
     })
     setTodoItems((prevState) => [...prevState]);
@@ -38,7 +47,7 @@ const Filters = ({ setRadioBtnSelected, setTodoItems, todoItems }) => {
         />
       ))}
       <br />
-      <DropdownMenu sortByNameTodoItems={handleSortByNameTodoItems} />
+      <DropdownMenu sortTodoItemsByName={handleSortTodoItemsByName} sortTodoItemsByPriority={handleSortTodoItemsByPriority} />
     </React.Fragment>
   )
 }
