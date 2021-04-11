@@ -51,20 +51,20 @@ function App() {
     });
   }
 
-  const todoItemsSortedByBtnSelection = todoItems.filter((item) => {
-    switch (radioBtnSelected.value) {
-      case '0': return item;
-      case '1': return item?.isComplete === false;
-      case '2': return item?.isComplete === true;
-      default: return item;
-    }
-  })
+  // const todoItemsSortedByBtnSelection = todoItems.filter((item) => {
+  //   switch (radioBtnSelected.value) {
+  //     case '0': return item;
+  //     case '1': return item?.isComplete === false;
+  //     case '2': return item?.isComplete === true;
+  //     default: return item;
+  //   }
+  // })
 
-  // For testing --------------------------------
-  useEffect(() => {
-    console.log(todoItemsSortedByBtnSelection)
-  }, [todoItemsSortedByBtnSelection])
-  // ---------------------------------------------
+  // // For testing --------------------------------
+  // useEffect(() => {
+  //   console.log(todoItemsSortedByBtnSelection)
+  // }, [todoItemsSortedByBtnSelection])
+  // // ---------------------------------------------
 
   return (
     <div className='container'>
@@ -78,10 +78,11 @@ function App() {
         </section>
         <section>
           <TodoListItems
-            todoItems={todoItemsSortedByBtnSelection}
+            todoItems={todoItems}
             removeTodoItem={handleRemoveTodoItem}
             completeTodoItem={handleCompleteTodoItem}
             priorityTodo={handlePriorityTodo}
+            radioBtnSelected={radioBtnSelected}
           />
         </section>
       </main>
