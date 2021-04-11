@@ -27,20 +27,20 @@ function App() {
   }
 
   // Purely for testing -----------------
-  useEffect(() => {
-    if (todoItems.length >= 1) {
-      console.log(todoItems.length)
-      console.log('IS COMPLETE')
-      console.log(todoItems[0].isComplete)
-      console.log('PRIORITY')
-      console.log(todoItems[0].priority)
-    }
-    return null;
-  }, [todoItems]);
+  // useEffect(() => {
+  //   if (todoItems.length >= 1) {
+  //     console.log(todoItems.length)
+  //     console.log('IS COMPLETE')
+  //     console.log(todoItems[0].isComplete)
+  //     console.log('PRIORITY')
+  //     console.log(todoItems[0].priority)
+  //   }
+  //   return null;
+  // }, [todoItems]);
 
-  useEffect(() => {
-    console.log(radioBtnSelected)
-  }, [radioBtnSelected])
+  // useEffect(() => {
+  //   console.log(radioBtnSelected)
+  // }, [radioBtnSelected])
   // ------------------------------------
 
   const handlePriorityTodo = (todoItem) => {
@@ -51,20 +51,14 @@ function App() {
     });
   }
 
-  // const todoItemsSortedByBtnSelection = todoItems.filter((item) => {
-  //   switch (radioBtnSelected.value) {
-  //     case '0': return item;
-  //     case '1': return item?.isComplete === false;
-  //     case '2': return item?.isComplete === true;
-  //     default: return item;
-  //   }
-  // })
-
-  // // For testing --------------------------------
-  // useEffect(() => {
-  //   console.log(todoItemsSortedByBtnSelection)
-  // }, [todoItemsSortedByBtnSelection])
-  // // ---------------------------------------------
+  // const handleSortByNameTodoItems = (e) => {
+  //   todoItems.sort((a, b) => {
+  //     if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+  //     if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+  //     return 0;
+  //   })
+  //   setTodoItems((prevState) => [...prevState]);
+  // }
 
   return (
     <div className='container'>
@@ -74,7 +68,7 @@ function App() {
       </header>
       <main>
         <section>
-          <Filters todoItems={todoItems} setRadioBtnSelected={setRadioBtnSelected} />
+          <Filters setTodoItems={setTodoItems} todoItems={todoItems} setRadioBtnSelected={setRadioBtnSelected} />
         </section>
         <section>
           <TodoListItems

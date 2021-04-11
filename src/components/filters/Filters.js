@@ -2,7 +2,7 @@ import React from 'react';
 import RadioButtons from './RadioButtons';
 import DropdownMenu from './DropdownMenu';
 
-const Filters = ({ setRadioBtnSelected }) => {
+const Filters = ({ setRadioBtnSelected, setTodoItems, todoItems }) => {
   const RADIO_OPTIONS = [
     {
       value: 0,
@@ -17,6 +17,15 @@ const Filters = ({ setRadioBtnSelected }) => {
       name: 'Complete'
     }
   ];
+  
+  const handleSortByNameTodoItems = (e) => {
+    todoItems.sort((a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+      if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+      return 0;
+    })
+    setTodoItems((prevState) => [...prevState]);
+  }
 
   return (
     <React.Fragment>
@@ -29,7 +38,7 @@ const Filters = ({ setRadioBtnSelected }) => {
         />
       ))}
       <br />
-      <DropdownMenu />
+      <DropdownMenu sortByNameTodoItems={handleSortByNameTodoItems} />
     </React.Fragment>
   )
 }

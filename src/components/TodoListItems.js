@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
 const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTodo, radioBtnSelected }) => {
@@ -17,11 +18,13 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
   }, [todoItemsSortedByBtnSelection])
   // ---------------------------------------------
 
+
+  
+
   return (
     <ul>
       {todoItemsSortedByBtnSelection.map((item) => {
-        const { id } = item;
-        return <TodoListItem key={id}
+        return <TodoListItem key={uuidv4()}
           todoItem={item}
           removeTodoItem={removeTodoItem}
           completeTodoItem={completeTodoItem}
