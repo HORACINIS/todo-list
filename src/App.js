@@ -20,11 +20,6 @@ function App() {
 
   const handleCompleteTodoItem = (event, todoItem) => {
     setTodoItems(prevState => {
-      // console.log(event.target.checked)
-
-      // todoItem.isComplete = event.target.checked;
-      // return [...prevState];
-
       todoItem.isComplete = event.target.checked;
       return [...prevState];
     });
@@ -56,26 +51,20 @@ function App() {
     });
   }
 
-
   const todoItemsSortedByBtnSelection = todoItems.filter((item) => {
     switch (radioBtnSelected.value) {
-      case '0':
-        console.log(item)
-        return item;
-      case '1':
-        console.log(item)
-        return item?.isComplete === false;
-      case '2':
-        console.log(item)
-        return item?.isComplete === true;
-      default:
-        return item;
+      case '0': return item;
+      case '1': return item?.isComplete === false;
+      case '2': return item?.isComplete === true;
+      default: return item;
     }
   })
 
+  // For testing --------------------------------
   useEffect(() => {
     console.log(todoItemsSortedByBtnSelection)
   }, [todoItemsSortedByBtnSelection])
+  // ---------------------------------------------
 
   return (
     <div className='container'>

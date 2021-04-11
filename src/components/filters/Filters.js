@@ -1,9 +1,7 @@
 import React from 'react';
 import RadioButtons from './RadioButtons';
 
-const Filters = ({ setRadioBtnSelected }) => {
-  // const [radioBtnSelected, setRadioBtnSelected] = useState({ value: 0 });
-
+const Filters = ({ setRadioBtnSelected, radioBtnSelected }) => {
   const RADIO_OPTIONS = [
     {
       value: 0,
@@ -20,14 +18,16 @@ const Filters = ({ setRadioBtnSelected }) => {
   ];
 
   return (
-    <section onChange={(e) => {
-      setRadioBtnSelected({ value: e.target.value, name: RADIO_OPTIONS[e.target.value].name })
-    }}>
-
+    <React.Fragment>
       {RADIO_OPTIONS.map((button) => (
-        <RadioButtons key={button.value} selectionValue={button.value} selectionName={button.name} />
+        <RadioButtons key={button.value}
+          selectionValue={button.value}
+          selectionName={button.name}
+          setRadioBtnSelected={setRadioBtnSelected}
+          radioBtnOptions={RADIO_OPTIONS}
+        />
       ))}
-    </section>
+    </React.Fragment>
   )
 }
 
