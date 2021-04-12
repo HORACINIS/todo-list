@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
 import Filters from './components/filters/Filters';
+import MainMessage from './components/messages/MainMessage';
 
 // const mockData = [{ id: uuidv4(), index: todoItemIndex, name: 'Trotar', isComplete: false, priority: false }]
 
@@ -74,13 +75,20 @@ function App() {
           />
         </section>
         <section>
-          <TodoListItems
-            todoItems={todoItems}
-            removeTodoItem={handleRemoveTodoItem}
-            completeTodoItem={handleCompleteTodoItem}
-            priorityTodo={handlePriorityTodo}
-            radioBtnSelected={radioBtnSelected}
-          />
+          {todoItems.length ?
+
+            <TodoListItems
+              todoItems={todoItems}
+              removeTodoItem={handleRemoveTodoItem}
+              completeTodoItem={handleCompleteTodoItem}
+              priorityTodo={handlePriorityTodo}
+              radioBtnSelected={radioBtnSelected}
+            />
+            :
+            <MainMessage todoItems={todoItems} radioBtnSelected={radioBtnSelected} />
+
+          }
+
         </section>
       </main>
     </div>
