@@ -6,8 +6,6 @@ import Filters from './components/filters/Filters';
 import MainMessage from './components/messages/MainMessage';
 import Container from 'react-bootstrap/Container';
 
-// const mockData = [{ id: uuidv4(), index: todoItemIndex, name: 'Trotar', isComplete: false, priority: false }]
-
 function App() {
   const [todoItemIndex, setTodoItemIndex] = useState(0);
   const [todoItems, setTodoItems] = useState([]);
@@ -34,25 +32,7 @@ function App() {
       todoItem.isComplete = event.target.checked;
       return [...prevState];
     });
-    // DEFINE HERE THE VISUAL CHANGES FOR WHEN A TASK GETS MARKED AS DONE!
   }
-
-  // Purely for testing -----------------
-  // useEffect(() => {
-  //   if (todoItems.length >= 1) {
-  //     console.log(todoItems.length)
-  //     console.log('IS COMPLETE')
-  //     console.log(todoItems[0].isComplete)
-  //     console.log('PRIORITY')
-  //     console.log(todoItems[0].priority)
-  //   }
-  //   return null;
-  // }, [todoItems]);
-
-  // useEffect(() => {
-  //   console.log(radioBtnSelected)
-  // }, [radioBtnSelected])
-  // ------------------------------------
 
   const handlePriorityTodo = (todoItem) => {
     const todoItemPriority = todoItem.priority;

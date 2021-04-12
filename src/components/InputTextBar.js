@@ -15,7 +15,6 @@ const InputTextBar = ({ addTodoItem }) => {
           id='todo-name-input'
           maxLength='30'
         />
-        {/* <input type='text' placeholder='To-do name' name='name' id='todo-name-input' /> */}
         <InputGroup.Append>
           <Button variant="outline-secondary" type='submit'
             onClick={(e) => {

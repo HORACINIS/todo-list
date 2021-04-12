@@ -41,13 +41,14 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
 export default TodoListItems;
 
 
+
 const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
   const { name, isComplete, priority } = todoItem;
 
   return (
     <ListGroup.Item variant={isComplete && 'success'}>
       <Row>
-        <Col xs='2' md='2' lg='1' >
+        <Col xs='2' md='1' lg='1' >
           {/* {!priority ?
             <AiOutlineStar {...iconStyle} onClick={() => priorityTodo(todoItem)} />
             :
@@ -56,10 +57,13 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
 
 
           <DiCodeigniter fill={!priority ? 'black' : 'orange'} size='30' onClick={() => priorityTodo(todoItem)} />
+        </Col>
+        <Col xs='1' md='1' lg='1' >
 
           <input type='checkbox' name='complete' checked={isComplete}
             onChange={(e) => completeTodoItem(e, todoItem)}
           />
+
         </Col>
         <Col className='mt-2'>
           {!isComplete ? <b>{name}</b> : <del style={{ color: 'gray' }}>{name}</del>}

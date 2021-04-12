@@ -5,7 +5,6 @@ const MainMessage = ({ todoItems, radioBtnSelected: { value } }) => {
   const numOfItems = todoItems.length;
   const btnSelectedValue = value;
 
-
   useEffect(() => {
     if (numOfItems === 0) {
       if (btnSelectedValue === '0') setMessageToDisplay('Create a To-do')
