@@ -46,7 +46,7 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
   const { name, isComplete, priority } = todoItem;
 
   return (
-    <ListGroup.Item variant={isComplete && 'success'}>
+    <ListGroup.Item variant={isComplete && 'primary'}>
       <Row>
         <Col xs='2' md='1' lg='1' >
           {/* {!priority ?

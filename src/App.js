@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Title from './components/Title';
 import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
 import Filters from './components/filters/Filters';
@@ -45,7 +46,8 @@ function App() {
   return (
     <Container>
       <header>
-        <h1>To-do List App</h1>
+        <Title />
+        <br />
         <InputText addTodoItem={handleAddTodoItem} />
       </header>
       <main>
