@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import TodoListItem from './TodoListItem';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTodo, radioBtnSelected }) => {
 
@@ -19,7 +21,7 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
   // ---------------------------------------------
 
   return (
-    <ul>
+    <ListGroup>
       {todoItemsSortedByRadioBtnSelection.map((item) => {
         return <TodoListItem key={uuidv4()}
           todoItem={item}
@@ -28,33 +30,9 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
           priorityTodo={priorityTodo}
         />
       })}
-    </ul>
+    </ListGroup>
   )
 }
 
 export default TodoListItems;
 
-
-const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
-  const { name, isComplete, priority } = todoItem;
-  return (
-    <li>
-      <p>
-        {!priority ?
-          <AiOutlineStar fill='blue' onClick={() => priorityTodo(todoItem)} />
-          :
-          <AiFillStar fill='blue' onClick={() => priorityTodo(todoItem)} />
-        }
-        {/* ABOVE - COME BACK TO THIS AND TRY TO CHANGE THIS REPEATED CODE LATER */}
-
-        <input type='checkbox' name='complete' checked={isComplete}
-          onChange={(e) => completeTodoItem(e, todoItem)}
-        />
-        {name} <button onClick={() => {
-          const removeItemConfirmation = window.confirm('Are you sure that you want to remove this to-do item?');
-          removeItemConfirmation && removeTodoItem(todoItem);
-        }}>Remove</button>
-      </p>
-    </li>
-  )
-}
