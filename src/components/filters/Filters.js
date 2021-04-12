@@ -2,7 +2,7 @@ import React from 'react';
 import RadioButtons from './RadioButtons';
 import DropdownMenu from './DropdownMenu';
 
-const Filters = ({ setRadioBtnSelected, setTodoItems, todoItems }) => {
+const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
   const RADIO_OPTIONS = [
     {
       value: 0,
