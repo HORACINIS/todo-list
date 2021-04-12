@@ -13,6 +13,7 @@ const InputTextBar = ({ addTodoItem }) => {
           aria-label='To-do name'
           aria-describedby='basic-addon2'
           id='todo-name-input'
+          maxLength='30'
         />
         {/* <input type='text' placeholder='To-do name' name='name' id='todo-name-input' /> */}
         <InputGroup.Append>
@@ -24,26 +25,8 @@ const InputTextBar = ({ addTodoItem }) => {
             }}
           >Add</Button>
         </InputGroup.Append>
-
-        {/* <input type='submit' value='Add'
-        onClick={(e) => {
-          e.preventDefault();
-          const todoTextInput = document.querySelector('#todo-name-input');
-          addTodoItem(todoTextInput.value);
-        }} /> */}
       </InputGroup>
     </Form>
-
-    // <InputGroup className="mb-3">
-    //   <FormControl
-    //     placeholder="Recipient's username"
-    //     aria-label="Recipient's username"
-    //     aria-describedby="basic-addon2"
-    //   />
-    //   <InputGroup.Append>
-    //     <Button variant="outline-secondary">Button</Button>
-    //   </InputGroup.Append>
-    // </InputGroup>
   )
 }
 

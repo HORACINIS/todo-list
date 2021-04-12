@@ -77,7 +77,6 @@ function App() {
         </section>
         <section>
           {todoItems.length ?
-
             <TodoListItems
               todoItems={todoItems}
               removeTodoItem={handleRemoveTodoItem}
@@ -87,9 +86,7 @@ function App() {
             />
             :
             <MainMessage todoItems={todoItems} radioBtnSelected={radioBtnSelected} />
-
           }
-
         </section>
       </main>
     </Container>
