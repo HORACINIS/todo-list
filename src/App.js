@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
 import Filters from './components/filters/Filters';
+import MainMessage from './components/messages/MainMessage';
 
 // const mockData = [{ id: uuidv4(), index: todoItemIndex, name: 'Trotar', isComplete: false, priority: false }]
 
@@ -11,9 +12,14 @@ function App() {
   const [todoItems, setTodoItems] = useState([]);
   const [radioBtnSelected, setRadioBtnSelected] = useState({ value: 0, name: 'Display all' });
 
-  const handleAddTodoItem = (todoInput) => {
-    setTodoItemIndex(todoItemIndex + 1);
-    setTodoItems([...todoItems, { id: uuidv4(), index: todoItemIndex, name: todoInput, isComplete: false, priority: false }]);
+  const handleAddTodoItem = (todoInputName) => {
+    if (todoInputName.replace(/\s/g, '') === '') {
+      alert('You must ')
+    } else {
+      const capitalizedTodo = `${todoInputName[0].toUpperCase()}${todoInputName.slice(1)}`;
+      setTodoItemIndex(todoItemIndex + 1);
+      setTodoItems([...todoItems, { id: uuidv4(), index: todoItemIndex, name: capitalizedTodo, isComplete: false, priority: false }]);
+    }
     document.querySelector('#todo-name-input').value = '';
   }
 
@@ -69,13 +75,20 @@ function App() {
           />
         </section>
         <section>
-          <TodoListItems
-            todoItems={todoItems}
-            removeTodoItem={handleRemoveTodoItem}
-            completeTodoItem={handleCompleteTodoItem}
-            priorityTodo={handlePriorityTodo}
-            radioBtnSelected={radioBtnSelected}
-          />
+          {todoItems.length ?
+
+            <TodoListItems
+              todoItems={todoItems}
+              removeTodoItem={handleRemoveTodoItem}
+              completeTodoItem={handleCompleteTodoItem}
+              priorityTodo={handlePriorityTodo}
+              radioBtnSelected={radioBtnSelected}
+            />
+            :
+            <MainMessage todoItems={todoItems} radioBtnSelected={radioBtnSelected} />
+
+          }
+
         </section>
       </main>
     </div>
