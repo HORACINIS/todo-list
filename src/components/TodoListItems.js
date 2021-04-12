@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTodo, radioBtnSelected }) => {
 
@@ -19,7 +20,7 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
   // ---------------------------------------------
 
   return (
-    <ul>
+    <ListGroup>
       {todoItemsSortedByRadioBtnSelection.map((item) => {
         return <TodoListItem key={uuidv4()}
           todoItem={item}
@@ -28,7 +29,7 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
           priorityTodo={priorityTodo}
         />
       })}
-    </ul>
+    </ListGroup>
   )
 }
 
@@ -38,7 +39,7 @@ export default TodoListItems;
 const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
   const { name, isComplete, priority } = todoItem;
   return (
-    <li>
+    <ListGroup.Item>
       <p>
         {!priority ?
           <AiOutlineStar fill='blue' onClick={() => priorityTodo(todoItem)} />
@@ -55,6 +56,6 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
           removeItemConfirmation && removeTodoItem(todoItem);
         }}>Remove</button>
       </p>
-    </li>
+    </ListGroup.Item>
   )
 }

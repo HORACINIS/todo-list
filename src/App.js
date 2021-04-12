@@ -14,7 +14,7 @@ function App() {
 
   const handleAddTodoItem = (todoInputName) => {
     if (todoInputName.replace(/\s/g, '') === '') {
-      alert('You must ')
+      alert('You must enter a To-do name!')
     } else {
       const capitalizedTodo = `${todoInputName[0].toUpperCase()}${todoInputName.slice(1)}`;
       setTodoItemIndex(todoItemIndex + 1);
