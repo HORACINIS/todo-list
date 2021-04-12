@@ -36,6 +36,15 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
     setTodoItems((prevState) => [...prevState]);
   }
 
+  const handleSortTodoItemsByComplete = (e) => {
+    todoItems.sort((a, b) => {
+      if (a.isComplete > b.isComplete) return -1;
+      if (a.isComplete < b.isComplete) return 1;
+      return 0;
+    })
+    setTodoItems((prevState) => [...prevState]);
+  }
+
   const handleSortTodoItemsByTimeCreated = (e) => {
     todoItems.sort((a, b) => {
       if (a.index < b.index) return -1;
@@ -55,12 +64,12 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
           radioBtnOptions={RADIO_OPTIONS}
         />
       ))}
-      <br />
-      <DropdownMenu
+      {todoItems.length > 2 && <DropdownMenu
         sortTodoItemsByName={handleSortTodoItemsByName}
         sortTodoItemsByPriority={handleSortTodoItemsByPriority}
         sortTodoItemsByTimeCreated={handleSortTodoItemsByTimeCreated}
-      />
+        sortTodoItemsByComplete={handleSortTodoItemsByComplete}
+      />}
     </React.Fragment>
   )
 }

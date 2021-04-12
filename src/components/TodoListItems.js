@@ -44,7 +44,7 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
   const iconStyle = { fill: 'blue', size: '20px' }
 
   return (
-    <ListGroup.Item variant="primary">
+    <ListGroup.Item variant={isComplete ? 'success' : 'light'}>
       <Row>
         <Col xs='2' md='2' lg='1' >
           {!priority ?
@@ -56,8 +56,8 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
             onChange={(e) => completeTodoItem(e, todoItem)}
           />
         </Col>
-        <Col>
-          {name}
+        <Col className='mt-2'>
+          <b>{name}</b>
         </Col>
         <Col xs='4' md='2' lg="2">
           <Button variant='danger' onClick={() => {
