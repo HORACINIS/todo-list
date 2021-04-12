@@ -6,7 +6,7 @@ import logo from '../images/todo-logo.png'
 const Title = () => {
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand>
         <img
           alt='logo'
           src={logo}
