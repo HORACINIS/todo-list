@@ -14,26 +14,26 @@ function App() {
 
   const handleAddTodoItem = (todoInputName) => {
     if (todoInputName.replace(/\s/g, '') === '') {
-      alert('You must enter a To-do name!')
+      alert('You must enter a name for the To-do!');
     } else {
       const capitalizedTodo = `${todoInputName[0].toUpperCase()}${todoInputName.slice(1)}`;
       setTodoItemIndex(todoItemIndex + 1);
       setTodoItems([...todoItems, { id: uuidv4(), index: todoItemIndex, name: capitalizedTodo, isComplete: false, priority: false }]);
     }
     document.querySelector('#todo-name-input').value = '';
-  }
+  };
 
   const handleRemoveTodoItem = (todoItem) => {
     const newTodoItemList = todoItems.filter(item => item.id !== todoItem.id);
     setTodoItems(newTodoItemList);
-  }
+  };
 
   const handleCompleteTodoItem = (event, todoItem) => {
     setTodoItems(prevState => {
       todoItem.isComplete = event.target.checked;
       return [...prevState];
     });
-  }
+  };
 
   const handlePriorityTodo = (todoItem) => {
     const todoItemPriority = todoItem.priority;
@@ -41,7 +41,7 @@ function App() {
       todoItem.priority = !todoItemPriority;
       return [...prevState];
     });
-  }
+  };
 
   return (
     <Container>
@@ -73,6 +73,6 @@ function App() {
       </main>
     </Container>
   );
-}
+};
 
 export default App;
