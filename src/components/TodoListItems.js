@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+// import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import { DiCodeigniter } from 'react-icons/di'
+import { ImBin2 } from 'react-icons/im'
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -41,29 +43,32 @@ export default TodoListItems;
 
 const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
   const { name, isComplete, priority } = todoItem;
-  const iconStyle = { fill: 'blue', size: '20px' }
 
   return (
-    <ListGroup.Item variant={isComplete ? 'success' : 'light'}>
+    <ListGroup.Item variant={isComplete && 'success'}>
       <Row>
         <Col xs='2' md='2' lg='1' >
-          {!priority ?
-            <AiOutlineStar style={iconStyle} onClick={() => priorityTodo(todoItem)} />
+          {/* {!priority ?
+            <AiOutlineStar {...iconStyle} onClick={() => priorityTodo(todoItem)} />
             :
-            <AiFillStar style={iconStyle} onClick={() => priorityTodo(todoItem)} />
-          }
+            <AiFillStar {...iconStyle} onClick={() => priorityTodo(todoItem)} />
+          } */}
+
+
+          <DiCodeigniter fill={!priority ? 'black' : 'orange'} size='30' onClick={() => priorityTodo(todoItem)} />
+
           <input type='checkbox' name='complete' checked={isComplete}
             onChange={(e) => completeTodoItem(e, todoItem)}
           />
         </Col>
         <Col className='mt-2'>
-          <b>{name}</b>
+          {!isComplete ? <b>{name}</b> : <del style={{ color: 'gray' }}>{name}</del>}
         </Col>
-        <Col xs='4' md='2' lg="2">
+        <Col xs='2' md='1' lg='1'>
           <Button variant='danger' onClick={() => {
             const removeItemConfirmation = window.confirm('Are you sure that you want to remove this to-do item?');
             removeItemConfirmation && removeTodoItem(todoItem);
-          }}>Remove</Button>
+          }}><ImBin2 fill='white' /></Button>
         </Col>
       </Row>
     </ListGroup.Item>
