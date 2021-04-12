@@ -4,6 +4,7 @@ import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
 import Filters from './components/filters/Filters';
 import MainMessage from './components/messages/MainMessage';
+import Container from 'react-bootstrap/Container';
 
 // const mockData = [{ id: uuidv4(), index: todoItemIndex, name: 'Trotar', isComplete: false, priority: false }]
 
@@ -62,7 +63,7 @@ function App() {
   }
 
   return (
-    <div className='container'>
+    <Container>
       <header>
         <h1>To-do List App</h1>
         <InputText addTodoItem={handleAddTodoItem} />
@@ -91,7 +92,7 @@ function App() {
 
         </section>
       </main>
-    </div>
+    </Container>
   );
 }
 
