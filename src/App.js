@@ -45,18 +45,18 @@ function App() {
   };
 
   const todoItemsSortedByRadioBtnSelection = todoItems.filter((item) => {
-    switch (radioBtnSelected.value) {
-      case '1': return item?.isComplete === false;
-      case '2': return item?.isComplete === true;
+    switch (radioBtnSelected.name) {
+      case 'To-do': return item?.isComplete === false;
+      case 'Complete': return item?.isComplete === true;
       default: return item;
     };
   });
 
   useEffect(() => {
     if (todoItemsSortedByRadioBtnSelection.length === 0) {
-      radioBtnSelected.value === '0' && setMessageToDisplay('Create a To-do!');
-      radioBtnSelected.value === '1' && setMessageToDisplay('No To-do tasks!');
-      radioBtnSelected.value === '2' && setMessageToDisplay('No Complete tasks!');
+      radioBtnSelected.value === 0 && setMessageToDisplay('Create a To-do!');
+      radioBtnSelected.value === 1 && setMessageToDisplay('No To-do tasks!');
+      radioBtnSelected.value === 2 && setMessageToDisplay('No Complete tasks!');
     };
   }, [radioBtnSelected, todoItemsSortedByRadioBtnSelection]);
 

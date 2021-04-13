@@ -68,15 +68,10 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
 
   return (
     <React.Fragment>
-      {RADIO_OPTIONS.map(({ value, name }) => (
-        <RadioButtons
-          key={value}
-          selectionValue={value}
-          selectionName={name}
-          setRadioBtnSelected={setRadioBtnSelected}
-          radioBtnOptions={RADIO_OPTIONS}
-        />
-      ))}
+      <RadioButtons
+        radioBtnOptions={RADIO_OPTIONS}
+        setRadioBtnSelected={setRadioBtnSelected}
+      />
       {todoItems.length > 1 &&
         <DropdownMenu
           dropdownMenuOptions={DROPDOWN_MENU_OPTIONS}

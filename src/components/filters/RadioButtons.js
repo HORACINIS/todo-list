@@ -1,18 +1,21 @@
 import React from 'react';
 
-const RadioButtons = ({ selectionValue, selectionName, setRadioBtnSelected, radioBtnOptions }) => {
+const RadioButtons = ({ setRadioBtnSelected, radioBtnOptions }) => {
   return (
-    <label >
-      <input
-        type='radio'
-        value={selectionValue}
-        name='listingOptions'
-        onChange={(e) => {
-          setRadioBtnSelected({ value: e.target.value, name: radioBtnOptions[e.target.value].name });
-        }}
-      />
-      {selectionName}
-    </label>
+    <React.Fragment>
+      {radioBtnOptions.map(({ name, value }) => (
+        <label key={value}>
+          <input
+            type='radio'
+            value={value}
+            name='listingOptions'
+            defaultChecked={name === 'Display all'}
+            onChange={() => setRadioBtnSelected({ name: name, value: value })}
+          />
+          {name}
+        </label>
+      ))}
+    </React.Fragment>
   );
 };
 
