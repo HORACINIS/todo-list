@@ -18,58 +18,66 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
     }
   ];
 
-  const handleSortTodoItemsByName = (e) => {
-    todoItems.sort((a, b) => {
-      if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-      if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-      return 0;
-    });
-    setTodoItems((prevState) => [...prevState]);
-  };
+  const DROPDOWN_MENU_OPTIONS = [
+    {
+      value: 0,
+      name: 'Name'
+    },
+    {
+      value: 1,
+      name: 'Priority'
+    },
+    {
+      value: 2,
+      name: 'Complete'
+    },
+    {
+      value: 3,
+      name: 'Time Created'
+    }
+  ];
 
-  const handleSortTodoItemsByPriority = (e) => {
-    todoItems.sort((a, b) => {
-      if (a.priority > b.priority) return -1;
-      if (a.priority < b.priority) return 1;
-      return 0;
-    });
-    setTodoItems((prevState) => [...prevState]);
-  };
-
-  const handleSortTodoItemsByComplete = (e) => {
-    todoItems.sort((a, b) => {
-      if (a.isComplete > b.isComplete) return -1;
-      if (a.isComplete < b.isComplete) return 1;
-      return 0;
-    });
-    setTodoItems((prevState) => [...prevState]);
-  };
-
-  const handleSortTodoItemsByTimeCreated = (e) => {
-    todoItems.sort((a, b) => {
-      if (a.index < b.index) return -1;
-      if (a.index > b.index) return 1;
-      return 0;
-    });
+  const dropdownMenuBtnSelection = (menuItemName) => {
+    if (menuItemName === 'Name') {
+      todoItems.sort((a, b) => {
+        if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+        if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+        return 0;
+      });
+    } else if (menuItemName === 'Priority') {
+      todoItems.sort((a, b) => {
+        if (a.priority > b.priority) return -1;
+        if (a.priority < b.priority) return 1;
+        return 0;
+      });
+    } else if (menuItemName === 'Complete') {
+      todoItems.sort((a, b) => {
+        if (a.isComplete > b.isComplete) return -1;
+        if (a.isComplete < b.isComplete) return 1;
+        return 0;
+      });
+    } else if (menuItemName === 'Time Created') {
+      todoItems.sort((a, b) => {
+        if (a.index < b.index) return -1;
+        if (a.index > b.index) return 1;
+        return 0;
+      });
+    }
     setTodoItems((prevState) => [...prevState]);
   };
 
   return (
     <React.Fragment>
-      {RADIO_OPTIONS.map(({ value, name }) => (
-        <RadioButtons key={value}
-          selectionValue={value}
-          selectionName={name}
-          setRadioBtnSelected={setRadioBtnSelected}
-          radioBtnOptions={RADIO_OPTIONS}
+      <RadioButtons
+        radioBtnOptions={RADIO_OPTIONS}
+        setRadioBtnSelected={setRadioBtnSelected}
+      />
+      {todoItems.length > 1 &&
+        <DropdownMenu
+          dropdownMenuOptions={DROPDOWN_MENU_OPTIONS}
+          dropdownMenuBtnSelection={dropdownMenuBtnSelection}
         />
-      ))}
-      {todoItems.length > 1 && <DropdownMenu
-        sortTodoItemsByName={handleSortTodoItemsByName}
-        sortTodoItemsByPriority={handleSortTodoItemsByPriority}
-        sortTodoItemsByTimeCreated={handleSortTodoItemsByTimeCreated}
-        sortTodoItemsByComplete={handleSortTodoItemsByComplete}
-      />}
+      }
     </React.Fragment>
   );
 };

@@ -6,8 +6,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { DiCodeigniter } from 'react-icons/di'
 import { ImBin2 } from 'react-icons/im'
 
-
-
 const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
   const { name, isComplete, priority } = todoItem;
 
