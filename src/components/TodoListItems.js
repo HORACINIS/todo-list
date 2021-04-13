@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import TodoListItem from './TodoListItem';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-
 const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTodo, radioBtnSelected }) => {
 
   const todoItemsSortedByRadioBtnSelection = todoItems.filter((item) => {
@@ -12,10 +11,13 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
       case '1': return item?.isComplete === false;
       case '2': return item?.isComplete === true;
       default: return item;
-    }
-  })
+    };
+  });
   // For testing --------------------------------
   useEffect(() => {
+    if (todoItemsSortedByRadioBtnSelection.length === 0) {
+      console.log('No items here');
+    };
     console.log(todoItemsSortedByRadioBtnSelection);
   }, [todoItemsSortedByRadioBtnSelection]);
   // ---------------------------------------------

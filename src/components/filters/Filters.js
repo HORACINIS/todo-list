@@ -23,36 +23,36 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
       if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
       if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
       return 0;
-    })
+    });
     setTodoItems((prevState) => [...prevState]);
-  }
+  };
 
   const handleSortTodoItemsByPriority = (e) => {
     todoItems.sort((a, b) => {
       if (a.priority > b.priority) return -1;
       if (a.priority < b.priority) return 1;
       return 0;
-    })
+    });
     setTodoItems((prevState) => [...prevState]);
-  }
+  };
 
   const handleSortTodoItemsByComplete = (e) => {
     todoItems.sort((a, b) => {
       if (a.isComplete > b.isComplete) return -1;
       if (a.isComplete < b.isComplete) return 1;
       return 0;
-    })
+    });
     setTodoItems((prevState) => [...prevState]);
-  }
+  };
 
   const handleSortTodoItemsByTimeCreated = (e) => {
     todoItems.sort((a, b) => {
       if (a.index < b.index) return -1;
       if (a.index > b.index) return 1;
       return 0;
-    })
+    });
     setTodoItems((prevState) => [...prevState]);
-  }
+  };
 
   return (
     <React.Fragment>
@@ -71,7 +71,7 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
         sortTodoItemsByComplete={handleSortTodoItemsByComplete}
       />}
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default Filters;

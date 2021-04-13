@@ -11,6 +11,7 @@ function App() {
   const [todoItemIndex, setTodoItemIndex] = useState(0);
   const [todoItems, setTodoItems] = useState([]);
   const [radioBtnSelected, setRadioBtnSelected] = useState({ value: 0, name: 'Display all' });
+  const [messageToDisplay, setMessageToDisplay] = useState('Create a To-do');
 
   const handleAddTodoItem = (todoInputName) => {
     if (todoInputName.replace(/\s/g, '') === '') {
@@ -67,7 +68,7 @@ function App() {
               radioBtnSelected={radioBtnSelected}
             />
             :
-            <MainMessage todoItems={todoItems} radioBtnSelected={radioBtnSelected} />
+            <MainMessage messageToDisplay={messageToDisplay} />
           }
         </section>
       </main>
