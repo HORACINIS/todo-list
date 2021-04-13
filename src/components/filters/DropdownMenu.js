@@ -2,7 +2,7 @@ import React from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-const DropdownMenu = ({ sortTodoItemsByName, sortTodoItemsByPriority, sortTodoItemsByTimeCreated, sortTodoItemsByComplete }) => {
+const DropdownMenu = ({ sortTodoItemsByName, sortTodoItemsByPriority, sortTodoItemsByComplete, sortTodoItemsByTimeCreated }) => {
   return (
     <DropdownButton id="dropdown-basic-button" size="sm" variant="secondary" title="Sort by" >
       <Dropdown.Item onClick={(e) => sortTodoItemsByName(e)}>Name</Dropdown.Item>

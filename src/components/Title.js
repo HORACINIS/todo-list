@@ -14,10 +14,10 @@ const Title = () => {
           width='64'
           className="d-inline-block align-top"
         />{' '}
-    <h3>My To-do List App <Badge variant="secondary">v.0.2.1</Badge></h3>
-    </Navbar.Brand>
+        <h3>My To-do List App <Badge variant="secondary">v.0.2.1</Badge></h3>
+      </Navbar.Brand>
     </Navbar>
-  )
-}
+  );
+};
 
-export default Title
+export default Title;
