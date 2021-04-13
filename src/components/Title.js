@@ -1,6 +1,7 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
 import logo from '../images/todo-logo.png'
+import Navbar from 'react-bootstrap/Navbar';
+import Badge from 'react-bootstrap/Badge';
 
 
 const Title = () => {
@@ -13,7 +14,7 @@ const Title = () => {
           width='64'
           className="d-inline-block align-top"
         />{' '}
-    <h3>My To-do List App</h3>
+    <h3>My To-do List App <Badge variant="secondary">v.0.2.0</Badge></h3>
     </Navbar.Brand>
     </Navbar>
   )
