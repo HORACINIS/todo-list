@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Title from './components/Title';
 import InputText from './components/InputTextBar';
@@ -44,6 +44,24 @@ function App() {
     });
   };
 
+  const todoItemsSortedByRadioBtnSelection = todoItems.filter((item) => {
+    if (radioBtnSelected.value === '0') {
+      return item;
+    } else if (radioBtnSelected.value === '1') {
+      return item?.isComplete === false;
+    } else if (radioBtnSelected.value === '2') {
+      return item?.isComplete === true;
+    }
+    return item;
+  });
+
+  useEffect(() => {
+    if (todoItemsSortedByRadioBtnSelection.length === 0) {
+      if (radioBtnSelected.value === '1') setMessageToDisplay('No To-do tasks!');
+      if (radioBtnSelected.value === '2') setMessageToDisplay('No Complete tasks!');
+    };
+  }, [radioBtnSelected, todoItemsSortedByRadioBtnSelection])
+
   return (
     <Container>
       <header>
@@ -59,13 +77,14 @@ function App() {
           />
         </section>
         <section>
-          {todoItems.length ?
+          {todoItemsSortedByRadioBtnSelection.length ?
             <TodoListItems
               todoItems={todoItems}
               removeTodoItem={handleRemoveTodoItem}
               completeTodoItem={handleCompleteTodoItem}
               priorityTodo={handlePriorityTodo}
               radioBtnSelected={radioBtnSelected}
+              todoItemsSortedByRadioBtnSelection={todoItemsSortedByRadioBtnSelection}
             />
             :
             <MainMessage messageToDisplay={messageToDisplay} />
