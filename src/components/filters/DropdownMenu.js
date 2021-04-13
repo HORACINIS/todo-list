@@ -10,7 +10,7 @@ const DropdownMenu = ({ sortTodoItemsByName, sortTodoItemsByPriority, sortTodoIt
       <Dropdown.Item onClick={(e) => sortTodoItemsByComplete(e)}>Complete</Dropdown.Item>
       <Dropdown.Item onClick={(e) => sortTodoItemsByTimeCreated(e)}>Time Created</Dropdown.Item>
     </DropdownButton >
-  )
-}
+  );
+};
 
 export default DropdownMenu;

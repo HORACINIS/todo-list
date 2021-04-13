@@ -12,7 +12,7 @@ const RadioButtons = ({ selectionValue, selectionName, setRadioBtnSelected, radi
       />
       {selectionName}
     </label>
-  )
-}
+  );
+};
 
 export default RadioButtons;

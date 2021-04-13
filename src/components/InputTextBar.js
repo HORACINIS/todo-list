@@ -26,7 +26,7 @@ const InputTextBar = ({ addTodoItem }) => {
         </InputGroup.Append>
       </InputGroup>
     </Form>
-  )
-}
+  );
+};
 
 export default InputTextBar;

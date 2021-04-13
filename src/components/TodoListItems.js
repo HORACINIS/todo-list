@@ -16,8 +16,8 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
   })
   // For testing --------------------------------
   useEffect(() => {
-    console.log(todoItemsSortedByRadioBtnSelection)
-  }, [todoItemsSortedByRadioBtnSelection])
+    console.log(todoItemsSortedByRadioBtnSelection);
+  }, [todoItemsSortedByRadioBtnSelection]);
   // ---------------------------------------------
 
   return (
@@ -31,8 +31,8 @@ const TodoListItems = ({ todoItems, removeTodoItem, completeTodoItem, priorityTo
         />
       })}
     </ListGroup>
-  )
-}
+  );
+};
 
 export default TodoListItems;
 
