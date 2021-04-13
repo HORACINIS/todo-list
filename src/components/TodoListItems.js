@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import TodoListItem from './TodoListItem';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const TodoListItems = ({ removeTodoItem, completeTodoItem, priorityTodo, todoItemsSortedByRadioBtnSelection }) => {
+const TodoListItems = ({ todoItemsSortedByRadioBtnSelection, removeTodoItem, completeTodoItem, priorityTodo }) => {
 
   return (
     <ListGroup>
