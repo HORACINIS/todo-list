@@ -64,7 +64,7 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
           radioBtnOptions={RADIO_OPTIONS}
         />
       ))}
-      {todoItems.length > 2 && <DropdownMenu
+      {todoItems.length > 1 && <DropdownMenu
         sortTodoItemsByName={handleSortTodoItemsByName}
         sortTodoItemsByPriority={handleSortTodoItemsByPriority}
         sortTodoItemsByTimeCreated={handleSortTodoItemsByTimeCreated}
