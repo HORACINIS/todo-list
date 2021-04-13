@@ -57,6 +57,7 @@ function App() {
 
   useEffect(() => {
     if (todoItemsSortedByRadioBtnSelection.length === 0) {
+      if (radioBtnSelected.value === '0') setMessageToDisplay('Create a To-do');
       if (radioBtnSelected.value === '1') setMessageToDisplay('No To-do tasks!');
       if (radioBtnSelected.value === '2') setMessageToDisplay('No Complete tasks!');
     };
