@@ -31,7 +31,8 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
           <Button variant='danger' onClick={() => {
             const removeItemConfirmation = window.confirm('Are you sure that you want to remove this to-do item?');
             removeItemConfirmation && removeTodoItem(todoItem);
-          }}><ImBin2 fill='white' /></Button>
+          }}><ImBin2 fill='white' />
+          </Button>
         </Col>
       </Row>
     </ListGroup.Item>

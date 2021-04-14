@@ -1,6 +1,8 @@
 import React from 'react';
 import RadioButtons from './RadioButtons';
 import DropdownMenu from './DropdownMenu';
+import FormControl from '@material-ui/core/FormControl';
+
 
 const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
   const RADIO_OPTIONS = [
@@ -68,10 +70,14 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
 
   return (
     <React.Fragment>
-      <RadioButtons
-        radioBtnOptions={RADIO_OPTIONS}
-        setRadioBtnSelected={setRadioBtnSelected}
-      />
+      {todoItems.length > 0 &&
+        <FormControl component="fieldset">
+          <RadioButtons
+            radioBtnOptions={RADIO_OPTIONS}
+            setRadioBtnSelected={setRadioBtnSelected}
+          />
+        </FormControl>
+      }
       {todoItems.length > 1 &&
         <DropdownMenu
           dropdownMenuOptions={DROPDOWN_MENU_OPTIONS}
