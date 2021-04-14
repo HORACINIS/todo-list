@@ -15,11 +15,11 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
   return (
     <ListGroup.Item variant={isComplete && 'primary'}>
       <Row>
-        <Col xs='2' md='1' lg='1' >
+        <Col xs='2' md='1' lg='1' className='mt-1'>
           <DiCodeigniter fill={!priority ? 'black' : 'orange'} size='30' onClick={() => priorityTodo(todoItem)} />
         </Col>
 
-        <Col xs='1' md='1' lg='1' >
+        <Col xs='1' md='1' lg='1' className='mt-1'>
           <FormControlLabel
             control={
               <Checkbox
@@ -32,7 +32,7 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
           />
         </Col>
 
-        <Col className='mt-2'>
+        <Col className='mt-3'>
           {styledTodoNameWhenComplete}
         </Col>
 
