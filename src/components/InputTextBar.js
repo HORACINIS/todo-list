@@ -13,7 +13,7 @@ const InputTextBar = ({ addTodoItem }) => {
           aria-label='To-do name'
           aria-describedby='basic-addon2'
           id='todo-name-input'
-          maxLength='30'
+          maxLength='50'
         />
         <InputGroup.Append>
           <Button variant="outline-secondary" type='submit'

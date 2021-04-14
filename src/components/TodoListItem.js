@@ -8,6 +8,7 @@ import { ImBin2 } from 'react-icons/im'
 
 const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
   const { name, isComplete, priority } = todoItem;
+  const styledTodoNameWhenComplete = !isComplete ? <b>{name}</b> : <del style={{ color: 'gray' }}>{name}</del>;
 
   return (
     <ListGroup.Item variant={isComplete && 'primary'}>
@@ -23,7 +24,7 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
         </Col>
 
         <Col className='mt-2'>
-          {!isComplete ? <b>{name}</b> : <del style={{ color: 'gray' }}>{name}</del>}
+          {styledTodoNameWhenComplete}
         </Col>
 
         <Col xs='2' md='1' lg='1'>
