@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { DiCodeigniter } from 'react-icons/di'
 import { ImBin2 } from 'react-icons/im'
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo }) => {
   const { name, isComplete, priority } = todoItem;
@@ -18,8 +20,15 @@ const TodoListItem = ({ todoItem, removeTodoItem, completeTodoItem, priorityTodo
         </Col>
 
         <Col xs='1' md='1' lg='1' >
-          <input type='checkbox' name='complete' checked={isComplete}
-            onChange={(e) => completeTodoItem(e, todoItem)}
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={isComplete}
+                onChange={(e) => completeTodoItem(e, todoItem)}
+                name='complete'
+                color="primary"
+              />
+            }
           />
         </Col>
 
