@@ -44,6 +44,10 @@ function App() {
     });
   };
 
+  const handleRemoveAllTodoItems = () => {
+    setTodoItems([]);
+  }
+
   const todoItemsSortedByRadioBtnSelection = todoItems.filter((item) => {
     switch (radioBtnSelected.name) {
       case 'To-do': return item?.isComplete === false;
@@ -82,6 +86,7 @@ function App() {
               completeTodoItem={handleCompleteTodoItem}
               priorityTodo={handlePriorityTodo}
               todoItemsSortedByRadioBtnSelection={todoItemsSortedByRadioBtnSelection}
+              removeAllTodoItems={handleRemoveAllTodoItems}
             />
             :
             <MainMessage messageToDisplay={messageToDisplay} />
