@@ -14,7 +14,6 @@ describe('<Title />', () => {
     const titleElement = getByTestId('title');
     expect(titleElement.textContent).toBe('My To-do List App v.0.2.1');
   });
-
 });
 
 

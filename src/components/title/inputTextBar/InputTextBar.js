@@ -18,6 +18,7 @@ const InputTextBar = ({ addTodoItem }) => {
           aria-label='To-do name'
           aria-describedby='basic-addon2'
           id='todo-name-input'
+          data-testid='text-input'
           maxLength='50'
           style={textSyle}
         />
