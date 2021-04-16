@@ -7,7 +7,7 @@ const inputTextSyle = {
   border: 'solid 1px grey',
   fontSize: '20px',
   fontWeight: '500'
-}
+};
 
 const InputTextBar = ({ addTodoItem }) => {
   return (

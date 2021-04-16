@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Title from './components/title/Title';
-import InputText from './components/title/inputTextBar/InputTextBar';
-import TodoListItems from './components/TodoListItems';
+import InputText from './components/inputTextBar/InputTextBar';
+import TodoListItems from './components/todoListItems/TodoListItems';
 import Filters from './components/filters/Filters';
 import MainMessage from './components/mainMessage/MainMessage';
 import Container from 'react-bootstrap/Container';
