@@ -3,11 +3,16 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+const inputTextSyle = {
+  border: 'solid 1px grey',
+  fontSize: '20px',
+  fontWeight: '500'
+};
 
 const InputTextBar = ({ addTodoItem }) => {
   return (
     <Form>
-      <InputGroup className='mb-3 input-text-bar'>
+      <InputGroup className='mb-3'>
         <FormControl
           placeholder='To-do name'
           aria-label='To-do name'
@@ -15,6 +20,7 @@ const InputTextBar = ({ addTodoItem }) => {
           id='todo-name-input'
           data-testid='text-input'
           maxLength='50'
+          style={inputTextSyle}
         />
         <InputGroup.Append>
           <Button
