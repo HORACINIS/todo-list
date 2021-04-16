@@ -1,9 +1,9 @@
 import InputTextBar from './InputTextBar';
 import ReactDOM from 'react-dom';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 describe('<InputTextBar />', () => {
-  
+
   it('renders the Add button with its name correctly', () => {
     const root = document.createElement('div');
     ReactDOM.render(<InputTextBar />, root);
@@ -15,5 +15,13 @@ describe('<InputTextBar />', () => {
     const { getByTestId } = render(<InputTextBar />);
     const inputElement = getByTestId('text-input');
     expect(inputElement.textContent).toBeFalsy();
+  });
+});
+
+describe('text input on submit', () => {
+  it('onSubmit', () => {
+    const { getByTestId } = render(<InputTextBar />);
+    const inputElement = getByTestId('text-input');
+    fireEvent.submit(inputElement, {target: {value: 'Go to the gym'}})
   });
 });
