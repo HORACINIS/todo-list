@@ -4,7 +4,7 @@ import Title from './components/Title';
 import InputText from './components/InputTextBar';
 import TodoListItems from './components/TodoListItems';
 import Filters from './components/filters/Filters';
-import MainMessage from './components/messages/MainMessage';
+import MainMessage from './components/mainMessage/MainMessage';
 import Container from 'react-bootstrap/Container';
 
 function App() {

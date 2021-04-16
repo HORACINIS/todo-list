@@ -4,7 +4,11 @@ import Card from 'react-bootstrap/Card';
 const MainMessage = ({ messageToDisplay }) => {
   return (
     <h1 className='mt-5' style={{ color: '#33adff' }}>
-      <Card body>{messageToDisplay}</Card>
+      <Card
+        data-testid='main-message-id'
+        body
+      >{messageToDisplay}
+      </Card>
     </h1>
   );
 };
