@@ -3,7 +3,6 @@ import RadioButtons from './RadioButtons';
 import DropdownMenu from './DropdownMenu';
 import FormControl from '@material-ui/core/FormControl';
 
-
 const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
   const RADIO_OPTIONS = [
     {

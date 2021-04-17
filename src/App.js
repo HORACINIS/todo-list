@@ -58,9 +58,10 @@ function App() {
 
   useEffect(() => {
     if (todoItemsSortedByRadioBtnSelection.length === 0) {
-      radioBtnSelected.value === 0 && setMessageToDisplay('Create a To-do!');
-      radioBtnSelected.value === 1 && setMessageToDisplay('No To-do tasks!');
-      radioBtnSelected.value === 2 && setMessageToDisplay('No Complete tasks!');
+      const { value } = radioBtnSelected;
+      value === 0 && setMessageToDisplay('Create a To-do!');
+      value === 1 && setMessageToDisplay('No To-do tasks!');
+      value === 2 && setMessageToDisplay('No Complete tasks!');
     };
   }, [radioBtnSelected, todoItemsSortedByRadioBtnSelection]);
 
