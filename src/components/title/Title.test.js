@@ -9,10 +9,10 @@ describe('<Title />', () => {
     ReactDOM.render(<Title />, root);
   });
 
-  it('should render the title; My To-do List App v.0.2.1', () => {
+  it('should render the title; My To-do List App v.0.2.1d', () => {
     const { getByTestId } = render(<Title />);
     const titleElement = getByTestId('title');
-    expect(titleElement.textContent).toBe('My To-do List App v.0.2.1');
+    expect(titleElement.textContent).toBe('My To-do List App v.0.2.1d');
   });
 });
 
