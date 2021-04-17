@@ -49,15 +49,10 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
         if (a[objAttr] > b[objAttr]) { return -1 } else { return 1 };
       });
     };
-    if (menuItemName === 'Name') {
-      sortingUp('name');
-    } else if (menuItemName === 'Priority') {
-      sortingDown('priority');
-    } else if (menuItemName === 'Complete') {
-      sortingDown('isComplete')
-    } else if (menuItemName === 'Time Created') {
-      sortingUp('index')
-    };
+    if (menuItemName === 'Name') sortingUp('name');
+    else if (menuItemName === 'Priority') sortingDown('priority');
+    else if (menuItemName === 'Complete') sortingDown('isComplete');
+    else if (menuItemName === 'Time Created') sortingUp('index');
     setTodoItems((prevState) => [...prevState]);
   };
 
