@@ -40,31 +40,25 @@ const Filters = ({ todoItems, setTodoItems, setRadioBtnSelected }) => {
   ];
 
   const dropdownMenuBtnSelection = (menuItemName) => {
+    const sortingUp = (objAttr) => {
+      todoItems.sort((a, b) => {
+        if (a[objAttr] < b[objAttr]) { return -1 } else { return 1 };
+      });
+    };
+    const sortingDown = (objAttr) => {
+      todoItems.sort((a, b) => {
+        if (a[objAttr] > b[objAttr]) { return -1 } else { return 1 };
+      });
+    };
     if (menuItemName === 'Name') {
-      todoItems.sort((a, b) => {
-        if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-        if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-        return 0;
-      });
+      sortingUp('name');
     } else if (menuItemName === 'Priority') {
-      todoItems.sort((a, b) => {
-        if (a.priority > b.priority) return -1;
-        if (a.priority < b.priority) return 1;
-        return 0;
-      });
+      sortingDown('priority');
     } else if (menuItemName === 'Complete') {
-      todoItems.sort((a, b) => {
-        if (a.isComplete > b.isComplete) return -1;
-        if (a.isComplete < b.isComplete) return 1;
-        return 0;
-      });
+      sortingDown('isComplete')
     } else if (menuItemName === 'Time Created') {
-      todoItems.sort((a, b) => {
-        if (a.index < b.index) return -1;
-        if (a.index > b.index) return 1;
-        return 0;
-      });
-    }
+      sortingUp('index')
+    };
     setTodoItems((prevState) => [...prevState]);
   };
 
