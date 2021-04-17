@@ -4,7 +4,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 const DropdownMenu = ({ dropdownMenuBtnSelection, dropdownMenuOptions }) => {
   return (
-
     <DropdownButton id="dropdown-basic-button" size="sm" variant="secondary" title="Sort by">
       {dropdownMenuOptions.map(({ value, name }) => (
         <Dropdown.Item

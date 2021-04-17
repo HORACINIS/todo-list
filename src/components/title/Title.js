@@ -14,7 +14,7 @@ const Title = () => {
           width='64'
           className="d-inline-block align-top"
         />
-        <h3 data-testid='title'>My To-do List App <Badge variant="secondary">v.0.2.1</Badge></h3>
+        <h3 data-testid='title'>My To-do List App <Badge variant="secondary">v.0.2.1d</Badge></h3>
       </Navbar.Brand>
     </Navbar>
   );
