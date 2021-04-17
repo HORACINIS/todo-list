@@ -1,4 +1,4 @@
-# My To-do List App v.0.2.1d
+# My To do List App v.0.2.1d
 
 ![to-do list screenshot]('/../public/assets/todoImg.png)
 
