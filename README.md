@@ -10,6 +10,7 @@
   - [Features](#features)
   - [Technologies](#technologies)
   - [Installation](#installation)
+  - [Run The app](#run-the-app)
   - [Testing](#testing)
   - [License](#license)
   - [Author Info](#author-info)
@@ -26,7 +27,7 @@ My To-do List App v.0.2.1d is a simple and awesome app to organize your tasks, a
 - You have the option to display all your tasks, your yet todo tasks or your completed ones.
 - Easily remove your tasks one by one or all of them at once.
 
-#### Technologies
+### Technologies
 - JavaScript
 - ReactJS
 - HTML
@@ -38,13 +39,17 @@ My To-do List App v.0.2.1d is a simple and awesome app to organize your tasks, a
 - Netlify
 
 ---
-### Installation
- `npm install` 
+## Installation
+### `npm install` 
 
- ### Testing
- `npm testing`
+## Run the app
+### `npm start`
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## License
+## Testing
+### `npm testing`
+
+### License
 
 MIT License
 
