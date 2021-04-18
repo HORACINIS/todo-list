@@ -3,8 +3,8 @@
 ![to-do list screenshot]('/../public/assets/todoImg.png)
 
 > **DEPLOYED SITE [here!](https://horacinis-todo.netlify.app/)**
+
 ### Table of Contents
-You're sections headers will be used to reference location of destination.
 
   - [Description](#description)
   - [Features](#features)
