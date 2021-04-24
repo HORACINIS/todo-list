@@ -6,6 +6,7 @@ import TodoListItems from './components/todoListItems/TodoListItems';
 import Filters from './components/filters/Filters';
 import MainMessage from './components/mainMessage/MainMessage';
 import Container from 'react-bootstrap/Container';
+// import { addToStorage } from './components/tools/localStorage';
 
 function App() {
   const [todoItemIndex, setTodoItemIndex] = useState(0);
@@ -64,6 +65,28 @@ function App() {
       value === 2 && setMessageToDisplay('No Complete tasks!');
     };
   }, [radioBtnSelected, todoItemsSortedByRadioBtnSelection]);
+
+
+  // get whatever there is saved in todos in the local storage 
+  const getFromStorage = () => {
+    const reference = localStorage.getItem('todos');
+    // if reference exists
+    if (reference) {
+      // converts back to array and store it in a todos array
+      setTodoItems(JSON.parse(reference));
+    }
+  }
+  useEffect(() => {
+    getFromStorage();
+  }, []);
+
+  const addToStorage = (todos) => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+  useEffect(() => {
+    addToStorage(todoItems)
+    // console.log(localStorage);
+  }, [todoItems], [])
 
   return (
     <Container>
