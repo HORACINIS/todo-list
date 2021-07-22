@@ -33,7 +33,6 @@ My To-do List App v.0.2.1d is a simple and awesome app to organize your tasks, a
 - HTML
 - CSS
 - React-Bootstrap
-- Material-UI
 - React-Icons
 - Visual Studio Code
 - Netlify
